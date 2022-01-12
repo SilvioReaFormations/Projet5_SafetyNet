@@ -13,7 +13,6 @@ import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.openclassrooms.safetynet.model.JsonUrl;
 import com.openclassrooms.safetynet.model.MedicalRecords;
-import com.openclassrooms.safetynet.model.Persons;
 import com.openclassrooms.safetynet.repository.MedicalRecordsRepository;
 
 @Service

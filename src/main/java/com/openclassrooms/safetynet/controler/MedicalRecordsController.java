@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.openclassrooms.safetynet.model.MedicalRecords;
-import com.openclassrooms.safetynet.model.Persons;
 import com.openclassrooms.safetynet.service.MedicalRecordsService;
 
 @RestController

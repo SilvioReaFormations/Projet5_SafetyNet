@@ -1,7 +1,6 @@
 package com.openclassrooms.safetynet;
 
 
-import java.net.URL;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

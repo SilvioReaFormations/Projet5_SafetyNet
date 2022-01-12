@@ -91,7 +91,7 @@ public class PersonsService implements PersonsRepository
 				personsLoop.setEmail(email);
 			}
 		}
-		System.out.println(personsList);		
+				
 	}
 	
 	
