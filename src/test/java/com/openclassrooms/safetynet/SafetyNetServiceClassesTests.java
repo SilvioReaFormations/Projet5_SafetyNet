@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.openclassrooms.safetynet.model.Firestations;
+import com.openclassrooms.safetynet.model.MedicalRecords;
 import com.openclassrooms.safetynet.model.Persons;
 import com.openclassrooms.safetynet.service.FirestationsService;
 import com.openclassrooms.safetynet.service.MedicalRecordsService;
@@ -29,8 +31,11 @@ class SafetyNetServiceClassesTests {
 	MedicalRecordsService medicalRecordsService;
 	
 
-	List<Persons> listTest = new ArrayList<>();
+	List<Persons> personsListTest = new ArrayList<>();
+	List<Firestations> firestationsListTest = new ArrayList<>();
+	List<MedicalRecords> medicalRecordsListTest = new ArrayList<>();
 	Persons personsTest = new Persons("Silvio", "REA", "address", "city", "zip", "phone", "email");
+	Firestations firestationsTest = new Firestations("Test address", "Test station");
 	
 	
 	@Test
@@ -43,8 +48,8 @@ class SafetyNetServiceClassesTests {
 	@Test
 	public void testIfConvertUrlToPersonsListWorks()
 	{
-		listTest = personsService.convertUrlToList();
-		assertNotNull(listTest);
+		personsListTest = personsService.convertUrlToList();
+		assertNotNull(personsListTest);
 	}
 	
 	
@@ -59,8 +64,8 @@ class SafetyNetServiceClassesTests {
 	@Test
 	public void testUpdatePersonsMethod()
 	{
-		listTest.add(personsTest);
-		personsService.setPersonsList(listTest);
+		personsListTest.add(personsTest);
+		personsService.setPersonsList(personsListTest);
 		personsService.updatePersons("Silvio", "REA", "TEST", "TEST", "TEST", "TEST", "TEST");
 		assertTrue(personsTest.getAddress().equals("TEST"));
 	}
@@ -69,13 +74,55 @@ class SafetyNetServiceClassesTests {
 	@Test
 	public void testDeletePersonsMethod()
 	{
-		listTest.add(personsTest);
-		personsService.setPersonsList(listTest);
+		personsListTest.add(personsTest);
+		personsService.setPersonsList(personsListTest);
 		personsService.deletePersons("Silvio", "REA");
 		assertFalse(personsService.getPersonsList().contains(personsTest));
 	}
 	
 	
 	
+	
+	//////////////// FirestationsService TESTS ////////////////////
 
+	@Test
+	public void testIfConvertUrlToFirestationsListWorks()
+	{
+		firestationsListTest = firestationsService.convertUrlToList();
+		assertNotNull(firestationsListTest);
+	}
+	
+	
+	@Test
+	public void testAddFirestationsMethod ()
+	{
+		firestationsService.addFirestation(firestationsTest);
+		assertTrue(firestationsService.getFirestationsList().contains(firestationsTest));
+	}
+	
+	
+	@Test
+	public void testUpdateFirestationsMethod()
+	{
+		firestationsListTest.add(firestationsTest);
+		firestationsService.setFirestationsList(firestationsListTest);;
+		firestationsService.updateFirestation("Test address", "Test station", "55");;
+		assertTrue(firestationsTest.getStation().equals("55"));
+	}
+
+	
+	@Test
+	public void testDeleteFirestationsMethod()
+	{
+		firestationsListTest.add(firestationsTest);
+		firestationsService.setFirestationsList(firestationsListTest);
+		firestationsService.deleteFirestation("Test address", "Test station");
+		assertFalse(firestationsService.getFirestationsList().contains(firestationsTest));
+	}
+	
+	
+	//////////////// MedicalRecordsService TESTS ////////////////////
+	
+	
+	
 }
