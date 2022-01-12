@@ -7,8 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -36,7 +34,9 @@ class SafetyNetServiceClassesTests {
 	List<MedicalRecords> medicalRecordsListTest = new ArrayList<>();
 	Persons personsTest = new Persons("Silvio", "REA", "address", "city", "zip", "phone", "email");
 	Firestations firestationsTest = new Firestations("Test address", "Test station");
-	
+	String[] arrayMedications = {"medi1", "medi2"};
+	String[] arrayAllergies = {"allerg1", "allerg2"};
+	MedicalRecords medicalRecordsTest = new MedicalRecords("Silvio", "REA", "26/09/1986", arrayMedications, arrayAllergies);
 	
 	@Test
 	void contextLoads() {
@@ -123,6 +123,35 @@ class SafetyNetServiceClassesTests {
 	
 	//////////////// MedicalRecordsService TESTS ////////////////////
 	
+	@Test
+	public void testIfConvertUrlToMedicalRecordsListWorks()
+	{
+		medicalRecordsListTest = medicalRecordsService.convertUrlToList();
+		assertNotNull(medicalRecordsListTest);
+	}
 	
+	
+	@Test
+	public void testAddMedicalRecordsMethod ()
+	{
+		medicalRecordsService.addMedicalRecords(medicalRecordsTest);
+		assertTrue(medicalRecordsService.getMedicalRecordsList().contains(medicalRecordsTest));
+	}
+	
+	
+	@Test
+	public void testDeleteMedicalRecordsMethod()
+	{
+		medicalRecordsListTest.add(medicalRecordsTest);
+		medicalRecordsService.setMedicalRecordsList(medicalRecordsListTest);
+		medicalRecordsService.deleteMedicalRecords("Silvio", "REA");
+		assertFalse(medicalRecordsService.getMedicalRecordsList().contains(medicalRecordsTest));
+	}
+	
+	@Test
+	public void testUpdateMedicalRecordsMethod()
+	{
+		// A FAIRE QUAND METHODE FONCTIONNERA
+	}
 	
 }
