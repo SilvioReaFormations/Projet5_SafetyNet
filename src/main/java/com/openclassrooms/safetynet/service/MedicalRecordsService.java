@@ -78,20 +78,24 @@ public class MedicalRecordsService implements MedicalRecordsRepository
 
 
 
-	@Override
-	public void updateMedicalRecords(String firstName, String lastName, String birthdate, String[] medications,
-			String[] allergies)
-	{
-		for (MedicalRecords medicalRecordsLoop : medicalRecordsList)
-		{
-			if (medicalRecordsLoop.getFirstName().equals(firstName) && medicalRecordsLoop.getLastName().equals(lastName))
-			{
-				medicalRecordsLoop.setBirthdate(birthdate);
-				medicalRecordsLoop.setMedications(medications);
-				medicalRecordsLoop.setAllergies(allergies);
-			}
-		}
-	}
+//	@Override
+//	public void updateMedicalRecords(String firstName, String lastName, String birthdate, String[] medications,
+//			String[] allergies)
+//	{
+//		for (MedicalRecords medicalRecordsLoop : medicalRecordsList)
+//		{
+//			if (medicalRecordsLoop.getFirstName().equals(firstName) && medicalRecordsLoop.getLastName().equals(lastName))
+//			{
+//				medicalRecordsLoop.setBirthdate(birthdate);
+//				medicalRecordsLoop.setMedications(medications);
+//				medicalRecordsLoop.setAllergies(allergies);
+//			}
+//		}
+//	}
+	
+	
+	
+	
 
 
 
@@ -107,5 +111,26 @@ public class MedicalRecordsService implements MedicalRecordsRepository
 			}
 		}
 		medicalRecordsList.remove(index);
+	}
+	
+	
+	
+
+	@Override
+	public MedicalRecords updateMedicalRecords(MedicalRecords medicalRecords)
+	{
+	
+		MedicalRecords temp = null;
+		for (MedicalRecords medicalRecordsLoop : medicalRecordsList)
+			{
+				if (medicalRecordsLoop.getFirstName().equals(medicalRecords.getFirstName()) && medicalRecordsLoop.getLastName().equals(medicalRecords.getLastName()) )
+				{
+					medicalRecordsLoop.setBirthdate(medicalRecords.getBirthdate());
+					medicalRecordsLoop.setMedications(medicalRecords.getMedications());
+					medicalRecordsLoop.setAllergies(medicalRecords.getAllergies());
+					temp = medicalRecordsLoop;
+				}
+			}
+		return temp;
 	}
 }

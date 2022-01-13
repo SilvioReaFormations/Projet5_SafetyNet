@@ -77,21 +77,20 @@ public class PersonsService implements PersonsRepository
 	
 	
 	@Override
-	public void updatePersons(String firstName, String lastName, String address, String city, String zip, String phone,
-			String email)
+	public void updatePersons(Persons persons)
 	{
 		for (Persons personsLoop : personsList)
 		{
-			if (personsLoop.getFirstName().equals(firstName) && personsLoop.getLastName().equals(lastName))
+			if(personsLoop.getFirstName().equals(persons.getFirstName()) && personsLoop.getLastName().equals(persons.getLastName()) )
 			{
-				personsLoop.setAddress(address);
-				personsLoop.setCity(city);
-				personsLoop.setZip(zip);
-				personsLoop.setPhone(phone);
-				personsLoop.setEmail(email);
+				personsLoop.setAddress(persons.getAddress());
+				personsLoop.setCity(persons.getCity());
+				personsLoop.setZip(persons.getZip());
+				personsLoop.setPhone(persons.getPhone());
+				personsLoop.setEmail(persons.getEmail());
+				
 			}
 		}
-				
 	}
 	
 	

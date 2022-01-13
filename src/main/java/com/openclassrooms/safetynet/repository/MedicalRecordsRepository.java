@@ -12,6 +12,11 @@ public interface MedicalRecordsRepository
 {
 	public List<MedicalRecords> convertUrlToList();
 	public void addMedicalRecords(MedicalRecords medicalRecords);
-	public void updateMedicalRecords(String firstName, String lastName, String birthdate, String[] medications, String [] allergies);
+//	public void updateMedicalRecords(String firstName, String lastName, String birthdate, String[] medications, String [] allergies);
 	public void deleteMedicalRecords(String firstName, String lastName);
+	
+	
+	public MedicalRecords updateMedicalRecords(MedicalRecords medicalRecords);
 }
+
+

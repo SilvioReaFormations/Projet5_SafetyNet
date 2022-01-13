@@ -1,5 +1,6 @@
 package com.openclassrooms.safetynet;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -66,7 +67,7 @@ class SafetyNetServiceClassesTests {
 	{
 		personsListTest.add(personsTest);
 		personsService.setPersonsList(personsListTest);
-		personsService.updatePersons("Silvio", "REA", "TEST", "TEST", "TEST", "TEST", "TEST");
+		personsService.updatePersons(new Persons ("Silvio", "REA", "TEST", "TEST", "TEST", "TEST", "TEST"));
 		assertTrue(personsTest.getAddress().equals("TEST"));
 	}
 	
@@ -151,7 +152,12 @@ class SafetyNetServiceClassesTests {
 	@Test
 	public void testUpdateMedicalRecordsMethod()
 	{
-		// A FAIRE QUAND METHODE FONCTIONNERA
+		medicalRecordsListTest.add(medicalRecordsTest);
+		medicalRecordsService.setMedicalRecordsList(medicalRecordsListTest);
+		String[] newMedications = {"new medication 1", "new medication 2"};
+		String[] newAllergies = {"new allergie 1", "new allergie 2"};
+		medicalRecordsService.updateMedicalRecords(new MedicalRecords("Silvio", "REA", "26/09/1986", newMedications, newAllergies));
+		assertTrue(medicalRecordsTest.getAllergies().equals(newAllergies) && medicalRecordsTest.getMedications().equals(newMedications));
 	}
 	
 }

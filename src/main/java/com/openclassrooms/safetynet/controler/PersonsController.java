@@ -42,10 +42,9 @@ public class PersonsController
 	
 	
 	@PatchMapping("/persons")
-	public void updatePersons(@RequestParam String firstName,@RequestParam String lastName,@RequestParam String address,
-			@RequestParam String city,@RequestParam String zip,@RequestParam String phone,@RequestParam String email)
+	public void updatePersons(@RequestBody Persons persons)
 	{
-		personsService.updatePersons(firstName, lastName, address, city, zip, phone, email);
+		personsService.updatePersons(persons);
 	}
 	
 	
