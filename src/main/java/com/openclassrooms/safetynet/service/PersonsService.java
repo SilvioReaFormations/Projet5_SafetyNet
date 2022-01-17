@@ -3,21 +3,33 @@ package com.openclassrooms.safetynet.service;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.openclassrooms.safetynet.model.Firestations;
 import com.openclassrooms.safetynet.model.JsonUrl;
+import com.openclassrooms.safetynet.model.MedicalRecords;
 import com.openclassrooms.safetynet.model.Persons;
 import com.openclassrooms.safetynet.repository.PersonsRepository;
 
 @Service
 public class PersonsService implements PersonsRepository
 {
+	@Autowired
+	MedicalRecordsService medicalRecordsService;
+	@Autowired
+	FirestationsService firestationService;
+	
 	ObjectMapper objectMapper = new ObjectMapper();
 	private JsonUrl jsonUrl;
 	List<Persons> personsList = new ArrayList<>();
@@ -110,8 +122,19 @@ public class PersonsService implements PersonsRepository
 		
 		personsList.remove(index);
 	}
+	
+	
+	
+	
+	////////////////////////////////////////////////////////////////////
+	
+	
+	
 
 		
+	
+	
+	
 
 	
 	

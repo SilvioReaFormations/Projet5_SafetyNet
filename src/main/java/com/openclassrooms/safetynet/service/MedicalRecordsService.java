@@ -19,9 +19,9 @@ import com.openclassrooms.safetynet.repository.MedicalRecordsRepository;
 public class MedicalRecordsService implements MedicalRecordsRepository
 {
 	
-	ObjectMapper objectMapper = new ObjectMapper();
+	private ObjectMapper objectMapper = new ObjectMapper();
 	private JsonUrl jsonUrl;
-	List<MedicalRecords> medicalRecordsList = new ArrayList<>();
+	private List<MedicalRecords> medicalRecordsList = new ArrayList<>();
 
 	public List<MedicalRecords> getMedicalRecordsList()
 	{
@@ -78,27 +78,6 @@ public class MedicalRecordsService implements MedicalRecordsRepository
 
 
 
-//	@Override
-//	public void updateMedicalRecords(String firstName, String lastName, String birthdate, String[] medications,
-//			String[] allergies)
-//	{
-//		for (MedicalRecords medicalRecordsLoop : medicalRecordsList)
-//		{
-//			if (medicalRecordsLoop.getFirstName().equals(firstName) && medicalRecordsLoop.getLastName().equals(lastName))
-//			{
-//				medicalRecordsLoop.setBirthdate(birthdate);
-//				medicalRecordsLoop.setMedications(medications);
-//				medicalRecordsLoop.setAllergies(allergies);
-//			}
-//		}
-//	}
-	
-	
-	
-	
-
-
-
 	@Override
 	public void deleteMedicalRecords(String firstName, String lastName)
 	{
@@ -133,4 +112,14 @@ public class MedicalRecordsService implements MedicalRecordsRepository
 			}
 		return temp;
 	}
+
+	
+	
+	
+	////////////////////////////////////////////////////////////////////
+	
+	
+	
+	
+
 }

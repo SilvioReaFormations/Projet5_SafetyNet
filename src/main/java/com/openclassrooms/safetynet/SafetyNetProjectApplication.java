@@ -2,6 +2,8 @@ package com.openclassrooms.safetynet;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,6 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.openclassrooms.safetynet.controler.FirestationsController;
 import com.openclassrooms.safetynet.controler.MedicalRecordsController;
 import com.openclassrooms.safetynet.controler.PersonsController;
+import com.openclassrooms.safetynet.model.Persons;
+import com.openclassrooms.safetynet.service.AccessToDataService;
+import com.openclassrooms.safetynet.service.FirestationsService;
+import com.openclassrooms.safetynet.service.MedicalRecordsService;
+import com.openclassrooms.safetynet.service.PersonsService;
 
 @SpringBootApplication
 public class SafetyNetProjectApplication implements CommandLineRunner
@@ -21,6 +28,12 @@ public class SafetyNetProjectApplication implements CommandLineRunner
 	FirestationsController firestationsController;
 	@Autowired
 	MedicalRecordsController medicalRecordsController;
+	
+	
+	
+	@Autowired
+	AccessToDataService atds;
+	
 	
 	public static void main(String[] args)
 	{
@@ -35,6 +48,9 @@ public class SafetyNetProjectApplication implements CommandLineRunner
 		firestationsController.convertUrlToList();
 		medicalRecordsController.convertUrlToList();
 		
+		
+		
+	
 		
     
 

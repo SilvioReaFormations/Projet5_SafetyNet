@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.openclassrooms.safetynet.model.Firestations;
+import com.openclassrooms.safetynet.model.Persons;
 
 @Repository
 public interface FirestationsRepository
