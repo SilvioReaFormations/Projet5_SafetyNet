@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.util.FileSystemUtils;
 
 import com.openclassrooms.safetynet.controler.FirestationsController;
 import com.openclassrooms.safetynet.controler.MedicalRecordsController;
@@ -48,7 +49,7 @@ public class SafetyNetProjectApplication implements CommandLineRunner
 		firestationsController.convertUrlToList();
 		medicalRecordsController.convertUrlToList();
 		
-		
+		System.out.println(atds.getPersons().toString());
 		
 	
 		

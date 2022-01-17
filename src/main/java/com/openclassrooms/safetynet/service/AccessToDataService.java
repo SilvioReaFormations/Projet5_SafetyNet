@@ -35,7 +35,6 @@ public class AccessToDataService
 
 		for (Firestations firestationsSortList : firestationsService.getFirestationsList())
 		{
-
 			if (stationNumber.equals(firestationsSortList.getStation()))
 			{
 				for (Persons personsSortList : personsList)
@@ -46,7 +45,6 @@ public class AccessToDataService
 						personsCoveredByFirestations.add("Last Name : " + personsSortList.getLastName());
 						personsCoveredByFirestations.add("Address : " + personsSortList.getAddress());
 						personsCoveredByFirestations.add("Phone Number : " + personsSortList.getPhone());
-						personsCoveredByFirestations.add("\n");
 
 						for (MedicalRecords medicalRecordsSort : medicalRecordsList)
 						{
@@ -120,7 +118,7 @@ public class AccessToDataService
 								childrenList.add("First Name : " + medicalRecordsSortList.getFirstName());
 								childrenList.add("Last Name : " + medicalRecordsSortList.getLastName());
 								childrenList.add("Age : " + age);
-								childrenList.add("\n");
+								
 							}
 
 						}
@@ -227,7 +225,7 @@ public class AccessToDataService
 					if (firestationsSortList.getAddress().equals(address))
 					{
 						personsList.add("Station Number : " + firestationsSortList.getStation());
-						personsList.add("\n");
+					
 					}
 				}
 			}
@@ -235,13 +233,8 @@ public class AccessToDataService
 		return personsList;
 	}
 
-	
-	
-	
-	
 	public List<String> getPersonsFromStation(String station)
 	{
-
 
 		List<String> personsList = new ArrayList<>();
 		List<String> medicationsList = new ArrayList<>();
@@ -294,37 +287,34 @@ public class AccessToDataService
 						personsList.add("First Name : " + personsSortList.getFirstName());
 						personsList.add("Last Name : " + personsSortList.getLastName());
 						personsList.add("Allergies : " + allergiesList.toString());
-						personsList.add("Medications : " + medicationsList.toString() );
+						personsList.add("Medications : " + medicationsList.toString());
 						allergiesList.clear();
 						medicationsList.clear();
 						personsList.add("Age : " + age);
-						personsList.add("Phone  Number : " + personsSortList.getPhone());
-						personsList.add("\n");
+						personsList.add("Phone Number : " + personsSortList.getPhone());
+						
 					}
 				}
 			}
 		}
 		return personsList;
 	}
-	
-	
-	
+
 	public List<String> getPersons()
 	{
-			
-		// nom, adresse, âge,  mail , les antécédents médicaux
+
 		List<String> personsList = new ArrayList<>();
 		List<String> medicationsList = new ArrayList<>();
 		List<String> allergiesList = new ArrayList<>();
 		long age = 0;
-		
+
 		for (Persons personsSortList : personsService.getPersonsList())
 		{
-			
+
 			personsList.add("First Name : " + personsSortList.getFirstName());
-			personsList.add("Last Name : " +personsSortList.getLastName());
-			personsList.add("Mail : " +personsSortList.getEmail());
-			
+			personsList.add("Last Name : " + personsSortList.getLastName());
+			personsList.add("Mail : " + personsSortList.getEmail());
+
 			for (MedicalRecords medicalRecordsSortList : medicalRecordsService.getMedicalRecordsList())
 			{
 				if (personsSortList.getFirstName().equals(medicalRecordsSortList.getFirstName())
@@ -361,23 +351,19 @@ public class AccessToDataService
 			personsList.add("Age : " + age);
 			personsList.add("Allergies : " + allergiesList.toString());
 			personsList.add("Medications : " + medicationsList.toString());
-			personsList.add("\n");
 			allergiesList.clear();
 			medicationsList.clear();
 		}
 		return personsList;
 	}
-	
-	
-	
-	
+
 	public List<String> getEmail()
 	{
 		List<String> emailList = new ArrayList<>();
-		
+
 		for (Persons personsSortList : personsService.getPersonsList())
 		{
-			emailList.add(personsSortList.getEmail() );
+			emailList.add(personsSortList.getEmail());
 		}
 		return emailList;
 	}
