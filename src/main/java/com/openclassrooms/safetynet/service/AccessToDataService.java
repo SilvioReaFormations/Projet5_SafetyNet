@@ -188,7 +188,7 @@ public class AccessToDataService
 
 						try
 						{
-							SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.FRENCH);
+							SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH);
 							Date birthdate = sdf.parse(medicalRecordsSortList.getBirthdate());
 							Date now = new Date();
 							age = (now.getTime() - birthdate.getTime()) / 86400000 / 365;

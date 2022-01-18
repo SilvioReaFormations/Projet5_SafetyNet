@@ -12,6 +12,6 @@ public interface FirestationsRepository
 {
 	public List<Firestations> convertUrlToList();
 	public void addFirestation(Firestations firestations);
-	public void updateFirestation(String address, String station, String newStation);
-	public void deleteFirestation(String address, String station);
+	public Firestations updateFirestation(String address, String station, String newStation);
+	public String deleteFirestation(String address, String station);
 }

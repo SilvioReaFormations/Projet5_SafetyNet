@@ -49,7 +49,7 @@ public class SafetyNetProjectApplication implements CommandLineRunner
 		firestationsController.convertUrlToList();
 		medicalRecordsController.convertUrlToList();
 		
-		System.out.println(atds.getPersons().toString());
+		
 		
 	
 		

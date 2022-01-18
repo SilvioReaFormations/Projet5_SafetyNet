@@ -27,7 +27,6 @@ import com.openclassrooms.safetynet.repository.FirestationsRepository;
 @Service
 public class FirestationsService implements FirestationsRepository
 {
-	
 
 	ObjectMapper objectMapper = new ObjectMapper();
 	private JsonUrl jsonUrl;
@@ -85,21 +84,25 @@ public class FirestationsService implements FirestationsRepository
 	}
 
 	@Override
-	public void updateFirestation(String address, String station, String newStation)
+	public Firestations updateFirestation(String address, String station, String newStation)
 	{
+		Firestations fs = null;
 		for (Firestations fireStationsLoop : firestationsList)
 		{
 			if (fireStationsLoop.getAddress().equals(address) && fireStationsLoop.getStation().equals(station))
 			{
 				fireStationsLoop.setStation(newStation);
+				fs = fireStationsLoop;
 			}
 		}
+		return fs;
 
 	}
 
 	@Override
-	public void deleteFirestation(String address, String station)
+	public String deleteFirestation(String address, String station)
 	{
+		String confirm = null;
 		int index = -1;
 		for (Firestations fireStationsLoop : firestationsList)
 		{
@@ -107,14 +110,17 @@ public class FirestationsService implements FirestationsRepository
 			if (fireStationsLoop.getAddress().equals(address) && fireStationsLoop.getStation().equals(station))
 			{
 				index = firestationsList.indexOf(fireStationsLoop);
+				confirm = "Firestation number " + fireStationsLoop.getStation() + " located at " 
+				+ fireStationsLoop.getAddress() + " has been deleted";
+
 			}
 		}
 
 		firestationsList.remove(index);
+		return confirm;
 
 	}
 
-	///////////////////////////////////////////////////////////////////////////////////////////////////
 
 	
 

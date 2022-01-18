@@ -39,12 +39,6 @@ public class MedicalRecordsController
 		medicalRecordsService.addMedicalRecords(medicalRecords);
 	}
 	
-//	@PatchMapping("/medicalrecords")
-//	public void updateMedicalRecords (@RequestParam String firstName, @RequestParam String lastName, @RequestParam String birthdate,
-//			@RequestParam String[] medications, @RequestParam String[] allergies)
-//	{
-//		medicalRecordsService.updateMedicalRecords(firstName, lastName, birthdate, medications, allergies);
-//	}
 	
 	@PatchMapping("/medicalrecords")
 	public MedicalRecords updateMedicalRecords (@RequestBody MedicalRecords medicalRecords)

@@ -73,7 +73,6 @@ public class MedicalRecordsService implements MedicalRecordsRepository
 	{
 		medicalRecordsList.add( medicalRecords );
 		
-		System.out.println(medicalRecordsList);
 	}
 
 
@@ -112,14 +111,5 @@ public class MedicalRecordsService implements MedicalRecordsRepository
 			}
 		return temp;
 	}
-
-	
-	
-	
-	////////////////////////////////////////////////////////////////////
-	
-	
-	
-	
 
 }

@@ -42,7 +42,7 @@ class SafetyNetServiceClassesTests
 	Firestations firestationsTest = new Firestations("Test address", "Test station");
 	String[] arrayMedications = { "medi1", "medi2" };
 	String[] arrayAllergies = { "allerg1", "allerg2" };
-	MedicalRecords medicalRecordsTest = new MedicalRecords("Silvio", "REA", "13/09/1986", arrayMedications,
+	MedicalRecords medicalRecordsTest = new MedicalRecords("Silvio", "REA", "26/09/1986", arrayMedications,
 			arrayAllergies);
 	
 	
@@ -219,13 +219,12 @@ class SafetyNetServiceClassesTests
 		
 		String result = accessToDataService.getPhoneNumbers("Test station").toString();
 
-		assertEquals("phone", result);
+		assertEquals("[phone]", result);
 		
 	}
 	
 	
 	
-	// ICI LE TEST ME TROUVE 33 ANS... SAUF SI JE SUIS NEE LE 13/09/1986 la ca marche....
 	
 	@Test
 	public void testGetPersonsFromAddressMethod()

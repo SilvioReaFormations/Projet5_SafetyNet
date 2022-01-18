@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.openclassrooms.safetynet.model.Firestations;
+import com.openclassrooms.safetynet.model.Persons;
 import com.openclassrooms.safetynet.service.FirestationsService;
 
 @RestController
@@ -27,6 +28,12 @@ public class FirestationsController
 		firestationsService.convertUrlToList();
 	}
 	
+	@GetMapping("/firestations")
+	public List<Firestations> getAll()
+	{
+		return firestationsService.getFirestationsList();
+	}
+	
 	
 	@PostMapping("/firestation")
 	public void addFirestations(@RequestBody Firestations firestations)
@@ -35,55 +42,16 @@ public class FirestationsController
 	}
 	
 	@PatchMapping("/firestation")
-	public void updateFirestations(@RequestParam String address, @RequestParam String station, @RequestParam String newStation)
+	public Firestations updateFirestations(@RequestParam String address, @RequestParam String station, @RequestParam String newStation)
 	{
-		firestationsService.updateFirestation(address, station, newStation);
+		return firestationsService.updateFirestation(address, station, newStation);
 	}
 	
 	@DeleteMapping("/firestation")
-	public void deleteFirestations(@RequestParam String address, @RequestParam String station)
+	public String deleteFirestations(@RequestParam String address, @RequestParam String station)
 	{
-		firestationsService.deleteFirestation(address, station);
+		return firestationsService.deleteFirestation(address, station);
 	}
-	
-	
-	/////////////////////////////////////////////////////////////////
-	
-	
-	
-	// @GetMapping("/firestation")
-//	public List<Firestations> getAll()
-//	{
-//		return firestationsService.getFirestationsList();
-//	}
-//	
-//	@GetMapping("/firestation")
-//	public List<String> getFirestationsToPersons(@RequestParam String stationNumber)
-//	{
-//		return firestationsService.getFirestationsToPersons(stationNumber);
-//	}
-
-	
-	
-	
-	
-	// A COLLER DANS AccessToDataController
-	
-//	@RequestMapping(value = "/firestation", params = "stationNumber", method = RequestMethod.GET)
-//	public List<String> getFirestationsToPersons(@RequestParam String stationNumber)
-//	{
-//		return firestationsService.getFirestationsToPersons(stationNumber);
-//	}
-//
-//	@RequestMapping(value = "/firestation", method = RequestMethod.GET)
-//	public List<Firestations> getAll()
-//	{
-//		return firestationsService.getFirestationsList();
-//	}
-	
-	
-	
-	
 	
 	
 }

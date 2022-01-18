@@ -108,19 +108,23 @@ public class PersonsService implements PersonsRepository
 	
 	
 	@Override
-	public void deletePersons(String firstName, String lastName)
+	public String deletePersons(String firstName, String lastName)
 	{
+		String confirm = "";
 		int index = -1;
 		for (Persons personsLoop : personsList)
 		{
 			if (personsLoop.getFirstName().equals(firstName) && personsLoop.getLastName().equals(lastName))
 			{
 				index = personsList.indexOf(personsLoop);
+				confirm = personsLoop.getFirstName() + " " + personsLoop.getLastName() + 
+						" has been delete";
 			}
 			
 		}	
 		
 		personsList.remove(index);
+		return confirm;
 	}
 	
 	

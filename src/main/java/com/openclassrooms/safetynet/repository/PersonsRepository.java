@@ -12,7 +12,7 @@ public interface PersonsRepository
 	public List<Persons> convertUrlToList();
 	public void addPersons(Persons persons);
 	public void updatePersons(Persons persons);
-	public void deletePersons(String firstName, String lastName);
+	public String deletePersons(String firstName, String lastName);
 	
 
 }

@@ -60,5 +60,19 @@ public class AccessToDataController
 		return accessToDataService.getEmail();
 		
 	}
+	
+//	@RequestMapping(value = "/firestation", params = "stationNumber", method = RequestMethod.GET)
+//	public List<String> getFirestationsToPersons(@RequestParam String stationNumber)
+//	{
+//		return firestationsService.getFirestationsToPersons(stationNumber);
+//	}
+//
+//	@RequestMapping(value = "/firestation", method = RequestMethod.GET)
+//	public List<Firestations> getAll()
+//	{
+//		return firestationsService.getFirestationsList();
+//	}
+	
+	
 
 }

@@ -52,11 +52,10 @@ public class PersonsController
 	
 	
 	@DeleteMapping("/persons")
-	public void deletePersons(@RequestParam String firstName, @RequestParam String lastName)
+	public String deletePersons(@RequestParam String firstName, @RequestParam String lastName)
 	{
-		personsService.deletePersons(firstName, lastName);
-		
-		
+		return personsService.deletePersons(firstName, lastName);
+
 	}
 	
 	
