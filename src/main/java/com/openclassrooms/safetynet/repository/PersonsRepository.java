@@ -10,8 +10,8 @@ import com.openclassrooms.safetynet.model.Persons;
 public interface PersonsRepository
 {
 	public List<Persons> convertUrlToList();
-	public void addPersons(Persons persons);
-	public void updatePersons(Persons persons);
+	public Persons addPersons(Persons persons);
+	public Persons updatePersons(Persons persons);
 	public String deletePersons(String firstName, String lastName);
 	
 

@@ -11,7 +11,7 @@ import com.openclassrooms.safetynet.model.Persons;
 public interface FirestationsRepository
 {
 	public List<Firestations> convertUrlToList();
-	public void addFirestation(Firestations firestations);
+	public Firestations addFirestation(Firestations firestations);
 	public Firestations updateFirestation(String address, String station, String newStation);
 	public String deleteFirestation(String address, String station);
 }

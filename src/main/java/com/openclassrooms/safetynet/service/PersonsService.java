@@ -81,16 +81,18 @@ public class PersonsService implements PersonsRepository
 	
 	
 	@Override
-	public void addPersons(Persons persons)
+	public Persons addPersons(Persons persons)
 	{
-		personsList.add(persons);		
+		personsList.add(persons);
+		return persons;		
 	}
 	
 	
 	
 	@Override
-	public void updatePersons(Persons persons)
+	public Persons updatePersons(Persons persons)
 	{
+		Persons confirm = null;
 		for (Persons personsLoop : personsList)
 		{
 			if(personsLoop.getFirstName().equals(persons.getFirstName()) && personsLoop.getLastName().equals(persons.getLastName()) )
@@ -100,9 +102,10 @@ public class PersonsService implements PersonsRepository
 				personsLoop.setZip(persons.getZip());
 				personsLoop.setPhone(persons.getPhone());
 				personsLoop.setEmail(persons.getEmail());
-				
+				confirm = persons;
 			}
 		}
+		return confirm;
 	}
 	
 	
@@ -126,18 +129,6 @@ public class PersonsService implements PersonsRepository
 		personsList.remove(index);
 		return confirm;
 	}
-	
-	
-	
-	
-	////////////////////////////////////////////////////////////////////
-	
-	
-	
-
-		
-	
-	
 	
 
 	

@@ -11,8 +11,8 @@ import com.openclassrooms.safetynet.model.MedicalRecords;
 public interface MedicalRecordsRepository
 {
 	public List<MedicalRecords> convertUrlToList();
-	public void addMedicalRecords(MedicalRecords medicalRecords);
-	public void deleteMedicalRecords(String firstName, String lastName);
+	public MedicalRecords addMedicalRecords(MedicalRecords medicalRecords);
+	public String deleteMedicalRecords(String firstName, String lastName);
 	public MedicalRecords updateMedicalRecords(MedicalRecords medicalRecords);
 	
 	

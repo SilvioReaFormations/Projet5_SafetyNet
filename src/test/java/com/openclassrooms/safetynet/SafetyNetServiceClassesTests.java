@@ -46,17 +46,6 @@ class SafetyNetServiceClassesTests
 			arrayAllergies);
 	
 	
-//	@BeforeAll
-//	void configLists()
-//	{
-//		personsListTest.add(personsTest);
-//		personsService.setPersonsList(personsListTest);
-//		firestationsListTest.add(firestationsTest);
-//		firestationsService.setFirestationsList(firestationsListTest);
-//		medicalRecordsListTest.add(medicalRecordsTest);
-//		medicalRecordsService.setMedicalRecordsList(medicalRecordsListTest);
-//	}
-	
 	
 
 	@Test

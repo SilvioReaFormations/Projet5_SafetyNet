@@ -34,9 +34,9 @@ public class MedicalRecordsController
 	
 	
 	@PostMapping("/medicalrecords")
-	public void addMedicalRecords (@RequestBody MedicalRecords medicalRecords)
+	public MedicalRecords addMedicalRecords (@RequestBody MedicalRecords medicalRecords)
 	{
-		medicalRecordsService.addMedicalRecords(medicalRecords);
+		return medicalRecordsService.addMedicalRecords(medicalRecords);
 	}
 	
 	
@@ -47,9 +47,9 @@ public class MedicalRecordsController
 	}
 	
 	@DeleteMapping("/medicalrecords")
-	public void deleteMedicalRecords(@RequestParam String firstName, @RequestParam String lastName)
+	public String deleteMedicalRecords(@RequestParam String firstName, @RequestParam String lastName)
 	{
-		medicalRecordsService.deleteMedicalRecords(firstName, lastName);
+		return medicalRecordsService.deleteMedicalRecords(firstName, lastName);
 	}
 	
 	

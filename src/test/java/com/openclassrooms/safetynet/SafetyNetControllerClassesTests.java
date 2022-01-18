@@ -19,6 +19,10 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.openclassrooms.safetynet.model.Firestations;
+import com.openclassrooms.safetynet.model.MedicalRecords;
 import com.openclassrooms.safetynet.model.Persons;
 
 
@@ -29,6 +33,9 @@ public class SafetyNetControllerClassesTests
 {
 	@Autowired
 	MockMvc mockMvc;
+	
+	@Autowired
+	 private ObjectMapper objectMapper;
 	
 	
 	
@@ -46,19 +53,33 @@ public class SafetyNetControllerClassesTests
 		mockMvc.perform(MockMvcRequestBuilders.get("/persons"))
 		.andExpect(status().isOk())
 		.andExpect(jsonPath("$").isArray())
-		.andExpect(jsonPath("$[0].firstName", is("John")))
-		.andExpect(jsonPath("[0].lastName", is("Boyd")));
+		.andExpect(jsonPath("$[0].lastName", is("Boyd")));
 	}
 	
-//	@Test
-//	public void addPersonsControllerTest() throws Exception
-//	{
-//		mockMvc.perform(MockMvcRequestBuilders.post("/persons")
-//				.contentType(MediaType.APPLICATION_JSON)
-//				.param("persons", "new Persons(\"Silvio\", \"REA\", \"Test address\", \"city\", \"zip\", \"phone\", \"email\")")
-//				)
-//				.andExpect(status().isCreated());
-//	}
+	@Test
+	public void addPersonsControllerTest() throws Exception
+	{
+		mockMvc.perform(MockMvcRequestBuilders.post("/persons")
+				.contentType(MediaType.APPLICATION_JSON)
+			    .content(objectMapper.writeValueAsString(new Persons("Silvio", "REA", "Test address", "city", "zip", "phone", "email"))))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.firstName", is("Silvio")))
+				.andExpect(jsonPath("$.lastName", is("REA")));
+	}
+	
+	
+	
+	@Test
+	public void updatePersonsControllerTest() throws JsonProcessingException, Exception
+	{
+		mockMvc.perform(MockMvcRequestBuilders.patch("/persons")
+				.contentType(MediaType.APPLICATION_JSON)
+			    .content(objectMapper.writeValueAsString(new Persons("John", "Boyd", "Test address", "city", "zip", "phone", "email"))))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.address", is("Test address")))
+				.andExpect(jsonPath("$.phone", is("phone")));
+	}
+	
 	
 	@Test
 	public void deletePersonsControllerTest() throws Exception
@@ -69,15 +90,6 @@ public class SafetyNetControllerClassesTests
 		.andExpect(status().isOk())
 		.andExpect(jsonPath("$", is("John Boyd has been delete")));
 	}
-	
-	@Test
-	public void updatePersonsControllerTest()
-	{
-		
-	}
-	
-	
-	
 	
 	////////////// FirestationsController TESTS /////////////////
 
@@ -94,17 +106,18 @@ public class SafetyNetControllerClassesTests
 	
 	
 	@Test
-	public void deleteFirestationsControllerTest() throws Exception
+	public void addFirestationsControllerTest() throws JsonProcessingException, Exception
 	{
-		mockMvc.perform(delete("/firestation")
-				.param("address", "1509 Culver St")
-				.param("station", "3"))
-		.andExpect(status().isOk())
-		.andExpect(jsonPath("$", is("Firestation number 3 located at 1509 Culver St has been deleted")));
-	
+		mockMvc.perform(MockMvcRequestBuilders.post("/firestation")
+				.contentType(MediaType.APPLICATION_JSON)
+			    .content(objectMapper.writeValueAsString(new Firestations("New Firestation", "New NumberStation"))))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.address", is("New Firestation")))
+				.andExpect(jsonPath("$.station", is("New NumberStation")));
 	}
 	
 	
+
 	@Test
 	public void updateFirestationsControllerTest() throws Exception
 	{
@@ -118,13 +131,78 @@ public class SafetyNetControllerClassesTests
 	
 	
 	@Test
-	public void addFirestationsControllerTest()
+	public void deleteFirestationsControllerTest() throws Exception
 	{
-		
+		mockMvc.perform(delete("/firestation")
+				.param("address", "29 15th St")
+				.param("station", "2"))
+		.andExpect(status().isOk())
+		.andExpect(jsonPath("$", is("Firestation number 2 located at 29 15th St has been deleted")));
+	
 	}
 	
 	
+	
+	
+	
+	
+	
 	////////////// MedicalRecordsController TESTS /////////////////
+
+	@Test
+	public void getAllMedicalRecordsControllerTest() throws Exception
+	{
+		mockMvc.perform(MockMvcRequestBuilders.get("/medicalrecords"))
+		.andExpect(status().isOk())
+		.andExpect(jsonPath("$").isArray())
+		.andExpect(jsonPath("$[0].firstName", is("John")))
+		.andExpect(jsonPath("[0].lastName", is("Boyd")));
+	}
+	
+	@Test
+	public void deleteMedicalRecordsControllerTest() throws Exception
+	{
+		mockMvc.perform(delete("/medicalrecords")
+				.param("firstName", "John")
+				.param("lastName", "Boyd"))
+		.andExpect(status().isOk())
+		.andExpect(jsonPath("$", is("John Boyd's medical records had been deleted")));
+	
+	}
+	
+	@Test
+	public void addMedicalRecordsControllerTest() throws JsonProcessingException, Exception
+	{
+		String[] arrayMedications = { "medi1", "medi2" };
+		String[] arrayAllergies = { "POLEN", "LACTOSE" };
+		
+		mockMvc.perform(MockMvcRequestBuilders.post("/medicalrecords")
+				.contentType(MediaType.APPLICATION_JSON)
+			    .content(objectMapper.writeValueAsString(new MedicalRecords("Silvio", "REA", "26/09/1986", arrayMedications,
+						arrayAllergies))))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.firstName", is("Silvio")))
+				.andExpect(jsonPath("$.lastName", is("REA")))
+				.andExpect(jsonPath("$.allergies[0]", is("POLEN")));
+	}
+	
+	@Test
+	public void updateMedicalRecordsControllerTest() throws JsonProcessingException, Exception
+	{
+		String[] arrayMedications = { "medi1", "medi2" };
+		String[] arrayAllergies = { "POLEN", "LACTOSE" };
+		
+		mockMvc.perform(MockMvcRequestBuilders.post("/medicalrecords")
+				.contentType(MediaType.APPLICATION_JSON)
+			    .content(objectMapper.writeValueAsString(new MedicalRecords("John", "Boyd", "03/06/1984", arrayMedications,
+						arrayAllergies))))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.firstName", is("John")))
+				.andExpect(jsonPath("$.lastName", is("Boyd")))
+				.andExpect(jsonPath("$.allergies[0]", is("POLEN")));
+	}
+	
+	
 
 	
 	

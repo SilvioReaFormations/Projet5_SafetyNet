@@ -48,7 +48,7 @@ public class AccessToDataController
 		return accessToDataService.getPersonsFromStation(station);
 	}
 
-	@GetMapping("personInfo")
+	@GetMapping("/personInfo")
 	public List<String> getPersons()
 	{
 		return accessToDataService.getPersons();

@@ -26,9 +26,9 @@ public class PersonsController
 	}
 	
 	@PostMapping("/persons")
-	public void addPersons(@RequestBody Persons persons)
+	public Persons addPersons(@RequestBody Persons persons)
 	{
-		personsService.addPersons(persons);
+		return personsService.addPersons(persons);
 	}
 	
 	
@@ -42,9 +42,9 @@ public class PersonsController
 	
 	
 	@PatchMapping("/persons")
-	public void updatePersons(@RequestBody Persons persons)
+	public Persons updatePersons(@RequestBody Persons persons)
 	{
-		personsService.updatePersons(persons);
+		return personsService.updatePersons(persons);
 	}
 	
 	

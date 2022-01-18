@@ -69,26 +69,31 @@ public class MedicalRecordsService implements MedicalRecordsRepository
 	
 	
 	@Override
-	public void addMedicalRecords(MedicalRecords medicalRecords)
+	public MedicalRecords addMedicalRecords(MedicalRecords medicalRecords)
 	{
 		medicalRecordsList.add( medicalRecords );
+		return medicalRecords;
 		
 	}
 
 
 
 	@Override
-	public void deleteMedicalRecords(String firstName, String lastName)
+	public String deleteMedicalRecords(String firstName, String lastName)
 	{
+		String confirm = "";
 		int index = -1;
 		for (MedicalRecords medicalRecordsLoop : medicalRecordsList)
 		{
 			if (medicalRecordsLoop.getFirstName().equals(firstName) && medicalRecordsLoop.getLastName().equals(lastName))
 			{
 				index = medicalRecordsList.indexOf(medicalRecordsLoop);
+				confirm = medicalRecordsLoop.getFirstName() + " " + medicalRecordsLoop.getLastName() 
+				+ "'s medical records had been deleted";
 			}
 		}
 		medicalRecordsList.remove(index);
+		return confirm;
 	}
 	
 	
@@ -98,7 +103,7 @@ public class MedicalRecordsService implements MedicalRecordsRepository
 	public MedicalRecords updateMedicalRecords(MedicalRecords medicalRecords)
 	{
 	
-		MedicalRecords temp = null;
+		MedicalRecords confirm = null;
 		for (MedicalRecords medicalRecordsLoop : medicalRecordsList)
 			{
 				if (medicalRecordsLoop.getFirstName().equals(medicalRecords.getFirstName()) && medicalRecordsLoop.getLastName().equals(medicalRecords.getLastName()) )
@@ -106,10 +111,10 @@ public class MedicalRecordsService implements MedicalRecordsRepository
 					medicalRecordsLoop.setBirthdate(medicalRecords.getBirthdate());
 					medicalRecordsLoop.setMedications(medicalRecords.getMedications());
 					medicalRecordsLoop.setAllergies(medicalRecords.getAllergies());
-					temp = medicalRecordsLoop;
+					confirm = medicalRecordsLoop;
 				}
 			}
-		return temp;
+		return confirm;
 	}
 
 }

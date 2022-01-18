@@ -77,9 +77,10 @@ public class FirestationsService implements FirestationsRepository
 	}
 
 	@Override
-	public void addFirestation(Firestations firestations)
+	public Firestations addFirestation(Firestations firestations)
 	{
 		firestationsList.add(firestations);
+		return firestations;
 
 	}
 

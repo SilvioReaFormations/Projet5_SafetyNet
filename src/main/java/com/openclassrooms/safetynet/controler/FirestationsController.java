@@ -36,9 +36,9 @@ public class FirestationsController
 	
 	
 	@PostMapping("/firestation")
-	public void addFirestations(@RequestBody Firestations firestations)
+	public Firestations addFirestations(@RequestBody Firestations firestations)
 	{
-		firestationsService.addFirestation(firestations);
+		return firestationsService.addFirestation(firestations);
 	}
 	
 	@PatchMapping("/firestation")

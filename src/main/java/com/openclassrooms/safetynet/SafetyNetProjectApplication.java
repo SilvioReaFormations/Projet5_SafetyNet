@@ -32,8 +32,6 @@ public class SafetyNetProjectApplication implements CommandLineRunner
 	
 	
 	
-	@Autowired
-	AccessToDataService atds;
 	
 	
 	public static void main(String[] args)
