@@ -42,7 +42,7 @@ public class AccessToDataControllerTest
 				.param("address", "1509 Culver St"))
 		.andExpect(jsonPath("$").isArray())
 		.andExpect(jsonPath("$[0]", is("First Name : Tenley")))
-		.andExpect(jsonPath("$.[2]", is("Age : 9")))
+		.andExpect(jsonPath("$.[2]", is("Age : 8")))
 		.andExpect(jsonPath("$.[6]", is("Other family members : [John, Jacob, Tenley, Roger, Felicia]")))
 		.andExpect(status().isOk());
 	}
