@@ -23,10 +23,6 @@ public class FirestationsController
 	@Autowired
 	private FirestationsService firestationsService;
 	
-	public void convertUrlToList()
-	{
-		firestationsService.convertUrlToList();
-	}
 	
 	@GetMapping("/firestations")
 	public List<Firestations> getAll()

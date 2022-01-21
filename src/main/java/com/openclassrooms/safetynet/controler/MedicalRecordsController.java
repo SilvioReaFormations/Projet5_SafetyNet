@@ -19,11 +19,6 @@ public class MedicalRecordsController
 {
 	@Autowired
 	MedicalRecordsService medicalRecordsService;
-
-	public void convertUrlToList()
-	{
-		medicalRecordsService.convertUrlToList();
-	}
 	
 	
 	@GetMapping("/medicalrecords")

@@ -39,7 +39,7 @@ public class AccessToDataController
 	@GetMapping("/fire")
 	public List<String> getPersonsFromAdress(@RequestParam String address)
 	{
-		return accessToDataService.getPersonsFromAdress(address);
+		return accessToDataService.getPersonsFromAddress(address);
 	}
 	
 	@GetMapping("/flood")

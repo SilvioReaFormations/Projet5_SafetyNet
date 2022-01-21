@@ -226,7 +226,7 @@ class SafetyNetServiceClassesTests
 		medicalRecordsService.setMedicalRecordsList(medicalRecordsListTest);
 		
 		
-		String result = accessToDataService.getPersonsFromAdress("Test address").toString();
+		String result = accessToDataService.getPersonsFromAddress("Test address").toString();
 		
 		assertEquals("[First Name : Silvio, Last Name : REA, Phone Number : phone, Age : 35, "
 				+ "Allergies : [allerg1, allerg2], Medications : [medi1, medi2], Station Number : Test station]" 

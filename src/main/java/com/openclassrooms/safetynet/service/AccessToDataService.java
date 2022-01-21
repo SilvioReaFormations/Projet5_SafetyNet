@@ -13,9 +13,10 @@ import org.springframework.stereotype.Service;
 import com.openclassrooms.safetynet.model.Firestations;
 import com.openclassrooms.safetynet.model.MedicalRecords;
 import com.openclassrooms.safetynet.model.Persons;
+import com.openclassrooms.safetynet.repository.AccessToDataRepository;
 
 @Service
-public class AccessToDataService
+public class AccessToDataService implements AccessToDataRepository
 {
 
 	@Autowired
@@ -164,7 +165,7 @@ public class AccessToDataService
 		return phoneNumbersList;
 	}
 
-	public List<String> getPersonsFromAdress(String address)
+	public List<String> getPersonsFromAddress(String address)
 	{
 		// Nom, tel, age antécédent, + caserne
 		List<String> personsList = new ArrayList<>();

@@ -20,10 +20,6 @@ public class PersonsController
 	@Autowired
 	private PersonsService personsService;
 	
-	public void convertUrlToList()
-	{
-		personsService.convertUrlToList();
-	}
 	
 	@PostMapping("/persons")
 	public Persons addPersons(@RequestBody Persons persons)

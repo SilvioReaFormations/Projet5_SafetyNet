@@ -24,11 +24,11 @@ public class SafetyNetProjectApplication implements CommandLineRunner
 {
 
 	@Autowired
-	PersonsController personsController;
+	PersonsService personsS;
 	@Autowired
-	FirestationsController firestationsController;
+	FirestationsService firestationsS;
 	@Autowired
-	MedicalRecordsController medicalRecordsController;
+	MedicalRecordsService medicalRecordsS;
 	
 	
 	
@@ -43,9 +43,9 @@ public class SafetyNetProjectApplication implements CommandLineRunner
 	public void run(String... args) throws Exception
 	{
 		
-		personsController.convertUrlToList();
-		firestationsController.convertUrlToList();
-		medicalRecordsController.convertUrlToList();
+		personsS.convertUrlToList();
+		firestationsS.convertUrlToList();
+		medicalRecordsS.convertUrlToList();
 		
 		
 		
