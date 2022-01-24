@@ -15,6 +15,13 @@ import com.openclassrooms.safetynet.model.MedicalRecords;
 import com.openclassrooms.safetynet.model.Persons;
 import com.openclassrooms.safetynet.repository.AccessToDataRepository;
 
+/**
+ * Class that regroup all methods that allow to use endpoints,
+ * 
+ * @author Silvio
+ *
+ */
+
 @Service
 public class AccessToDataService implements AccessToDataRepository
 {
@@ -26,6 +33,8 @@ public class AccessToDataService implements AccessToDataRepository
 	@Autowired
 	FirestationsService firestationsService;
 
+	
+	
 	public List<String> getFirestationsFromPersons(String stationNumber)
 	{
 		List<String> personsCoveredByFirestations = new ArrayList<>();

@@ -2,6 +2,14 @@ package com.openclassrooms.safetynet.model;
 
 import java.util.List;
 
+
+/**
+ * CLass used for the URL convertion to lists
+ * regroup lists of the other models Firestations, MedicalRecords and Persons
+ * @author Silvio
+ *
+ */
+
 public class JsonUrl
 {
 	private List<Persons> persons;

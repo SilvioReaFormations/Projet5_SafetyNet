@@ -1,5 +1,11 @@
 package com.openclassrooms.safetynet.model;
 
+/**
+ * Firestations Model
+ * @author Silvio
+ *
+ */
+
 public class Firestations
 {
 	private String address;

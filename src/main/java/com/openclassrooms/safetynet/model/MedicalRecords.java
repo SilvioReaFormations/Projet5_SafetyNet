@@ -1,7 +1,11 @@
 package com.openclassrooms.safetynet.model;
 
 import java.util.Arrays;
-
+/**
+ * MedicalRecords Model
+ * @author Silvio
+ *
+ */
 public class MedicalRecords
 {
 	private String firstName;

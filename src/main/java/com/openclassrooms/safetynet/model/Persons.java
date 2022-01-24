@@ -1,7 +1,11 @@
 package com.openclassrooms.safetynet.model;
 
 
-
+/**
+ * Persons Model
+ * @author Silvio
+ *
+ */
 public class Persons
 {
 	private String firstName;

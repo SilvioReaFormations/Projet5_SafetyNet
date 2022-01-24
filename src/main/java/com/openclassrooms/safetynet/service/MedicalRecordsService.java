@@ -15,6 +15,14 @@ import com.openclassrooms.safetynet.model.JsonUrl;
 import com.openclassrooms.safetynet.model.MedicalRecords;
 import com.openclassrooms.safetynet.repository.MedicalRecordsRepository;
 
+
+/**
+ * Service Class that regroup all methods that allow the update of the MedicalRecords List,
+ * creation, addition, update and delete MedicalRecords
+ * @author Silvio
+ *
+ */
+
 @Service
 public class MedicalRecordsService implements MedicalRecordsRepository
 {

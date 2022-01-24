@@ -17,6 +17,11 @@ import com.openclassrooms.safetynet.model.Firestations;
 import com.openclassrooms.safetynet.model.Persons;
 import com.openclassrooms.safetynet.service.FirestationsService;
 
+/**
+ * Controller Class of the firestationService  methods
+ * @author Silvio
+ *
+ */
 @RestController
 public class FirestationsController
 {

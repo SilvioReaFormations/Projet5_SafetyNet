@@ -24,6 +24,13 @@ import com.openclassrooms.safetynet.model.MedicalRecords;
 import com.openclassrooms.safetynet.model.Persons;
 import com.openclassrooms.safetynet.repository.FirestationsRepository;
 
+/**
+ * Service Class that regroup all methods that allow the update of the firestations List,
+ * creation, addition, update and delete firestations
+ * @author Silvio
+ *
+ */
+
 @Service
 public class FirestationsService implements FirestationsRepository
 {

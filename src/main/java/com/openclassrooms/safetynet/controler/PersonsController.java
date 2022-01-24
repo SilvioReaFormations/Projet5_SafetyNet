@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.openclassrooms.safetynet.model.Persons;
 import com.openclassrooms.safetynet.service.PersonsService;
 
+
+/**
+ * Controller Class of the PersonsService methods
+ * @author Silvio
+ *
+ */
 @RestController
 public class PersonsController
 {

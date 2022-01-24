@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.openclassrooms.safetynet.model.MedicalRecords;
 import com.openclassrooms.safetynet.service.MedicalRecordsService;
 
+/**
+ *  * Controller Class of the MedicalRecords Service  methods
+ * @author Silvio
+ *
+ */
 @RestController
 public class MedicalRecordsController
 {

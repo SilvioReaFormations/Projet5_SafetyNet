@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.openclassrooms.safetynet.service.AccessToDataService;
 
+
+/**
+ *  * Controller Class of the AccessToDataService methods
+ * @author Silvio
+ *
+ */
+
 @RestController
 public class AccessToDataController
 {

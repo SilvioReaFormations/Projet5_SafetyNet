@@ -22,6 +22,13 @@ import com.openclassrooms.safetynet.model.MedicalRecords;
 import com.openclassrooms.safetynet.model.Persons;
 import com.openclassrooms.safetynet.repository.PersonsRepository;
 
+/**
+ * Service Class that regroup all methods that allow the update of the Persons List,
+ * creation, addition, update and delete Persons
+ * @author Silvio
+ *
+ */
+
 @Service
 public class PersonsService implements PersonsRepository
 {

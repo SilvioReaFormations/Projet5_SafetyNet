@@ -19,6 +19,13 @@ import com.openclassrooms.safetynet.service.FirestationsService;
 import com.openclassrooms.safetynet.service.MedicalRecordsService;
 import com.openclassrooms.safetynet.service.PersonsService;
 
+
+/**
+ * When application lunch, convert URL into 3 lists
+ * 
+ * @author Silvio
+ *
+ */
 @SpringBootApplication
 public class SafetyNetProjectApplication implements CommandLineRunner
 {
@@ -29,8 +36,6 @@ public class SafetyNetProjectApplication implements CommandLineRunner
 	FirestationsService firestationsS;
 	@Autowired
 	MedicalRecordsService medicalRecordsS;
-	
-	
 	
 	
 	
